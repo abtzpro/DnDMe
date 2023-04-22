@@ -1,5 +1,5 @@
 import random
-import json
+import pickle
 
 class Character:
     def __init__(self):
@@ -27,23 +27,9 @@ class Character:
         self.wisdom = stats[4]
         self.charisma = stats[5]
         
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "race": self.race,
-            "job": self.job,
-            "strength": self.strength,
-            "dexterity": self.dexterity,
-            "constitution": self.constitution,
-            "intelligence": self.intelligence,
-            "wisdom": self.wisdom,
-            "charisma": self.charisma
-        }
-        
     def __str__(self):
         return f"Name: {self.name}\nRace: {self.race}\nJob: {self.job}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nConstitution: {self.constitution}\nIntelligence: {self.intelligence}\nWisdom: {self.wisdom}\nCharisma: {self.charisma}"
-        
-        
+
 def create_character():
     character = Character()
     character.name = input("Enter a name for your character: ")
@@ -52,43 +38,21 @@ def create_character():
     character.assign_stats()
     return character
 
-def save_character(character, filename):
-    with open(filename, "w") as f:
-        json.dump(character.to_dict(), f)
-        
-def load_character(filename):
-    with open(filename, "r") as f:
-        data = json.load(f)
-        character = Character()
-        character.name = data["name"]
-        character.race = data["race"]
-        character.job = data["job"]
-        character.strength = data["strength"]
-        character.dexterity = data["dexterity"]
-        character.constitution = data["constitution"]
-        character.intelligence = data["intelligence"]
-        character.wisdom = data["wisdom"]
-        character.charisma = data["charisma"]
+def save_character(character):
+    file_name = f"{character.name}.pkl"
+    with open(file_name, "wb") as file:
+        pickle.dump(character, file)
+
+def load_character(file_name):
+    with open(file_name, "rb") as file:
+        character = pickle.load(file)
         return character
 
-def choose_option():
-    choice = input("Enter '1' to create a new character, '2' to save a character, '3' to load a character, or 'q' to quit: ")
-    if choice == "1":
-        return create_character()
-    elif choice == "2":
-        filename = input("Enter a filename to save your character to: ")
-        character = create_character()
-        save_character(character, filename)
-        return character
-    elif choice == "3":
-        filename = input("Enter a filename to load your character from: ")
-        return load_character(filename)
-    elif choice == "q":
-        return None
-    else:
-        print("Invalid choice, please try again.")
-        return choose_option()
+character = create_character()
+print(character)
 
-if __name__ == "__main__":
-    while True:
-        character = choose_option
+file_name = f"{character.name}.pkl"
+save_character(character)
+
+loaded_character = load_character(file_name)
+print(loaded_character)
