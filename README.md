@@ -10,4 +10,7 @@ With the "charactermaker", you can create your own D&D character and stats will 
 
 "Dice.py" gives a user a full set of DnD dice and allows a user the ability to choose which dice to roll, and how many. Then prints the results and the total. 
 
+"NPC.py" In this script, the NPC class is defined, which takes in various attributes such as name, level, stats, armor class, hit points, and damage. The attack method is also defined, which allows an NPC to attack a target, rolling a hit roll and damage roll, and subtracting the target's hit points based on the damage roll if the hit roll is successful.
+
 DnDMe is Developed by abtzpro, Adam R, and Hello Security
+
