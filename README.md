@@ -14,5 +14,7 @@ With the "charactermaker", you can create your own D&D character and stats will 
 
 "Multiplayer.py" Allows users the ability to play DnDMe in a multiplayer manner. 
 
+"RandomEncounter.py" script defines two lists - one for events and one for encounter types - and three functions. The first function randomly selects an event from the events list, the second function randomly selects an encounter type from the encounter_types list, and the third function generates a random encounter based on the chosen encounter type. Finally, the script tests the functions by printing out a random event and encounter. You can modify the script to include more events and encounter types, or to generate more complex encounters based on the chosen encounter type.
+
 DnDMe is Developed by abtzpro, Adam R, and Hello Security
 
