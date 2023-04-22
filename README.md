@@ -12,5 +12,7 @@ With the "charactermaker", you can create your own D&D character and stats will 
 
 "NPC.py" In this script, the NPC class is defined, which takes in various attributes such as name, level, stats, armor class, hit points, and damage. The attack method is also defined, which allows an NPC to attack a target, rolling a hit roll and damage roll, and subtracting the target's hit points based on the damage roll if the hit roll is successful.
 
+"Multiplayer.py" Allows users the ability to play DnDMe in a multiplayer manner. 
+
 DnDMe is Developed by abtzpro, Adam R, and Hello Security
 
